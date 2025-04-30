@@ -1,0 +1,216 @@
+/* ───────────────────────────────────────────────────────── */
+/*                     GLOBAL STYLES                         */
+/* ───────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #e50914;
+  --primary-dark: #b20710;
+  --dark: #141414;
+  --light: #f4f4f4;
+  --gray: #808080;
+  --gray-dark: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, #root {
+  height: 100%;
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Utility animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+
+/* ───────────────────────────────────────────────────────── */
+/*                     LOGIN PAGE                            */
+/* ───────────────────────────────────────────────────────── */
+.login-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.login-card h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.login-card p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.login-card input::placeholder {
+  color: #bbb;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.login-card button:hover {
+  background: var(--primary-dark);
+}
+
+.login-card a {
+  color: #8ab4f8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* ───────────────────────────────────────────────────────── */
+/*                   DASHBOARD (NETFLIX-STYLE)              */
+/* ───────────────────────────────────────────────────────── */
+
+/* fixed top nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar .logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navbar input[type="text"] {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.navbar input[type="text"]::placeholder {
+  color: #bbb;
+}
+
+.navbar button {
+  background: transparent;
+  border: 1px solid var(--light);
+  color: var(--light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.navbar button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* push content below nav */
+.main-content {
+  padding-top: 70px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* each section */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.section h2 .icon {
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+/* movie grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 1rem;
+}
+
+/* override body background if you want a deep black */
+body.dashboard {
+  background: #000;
+}
